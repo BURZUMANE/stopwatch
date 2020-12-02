@@ -1,0 +1,25 @@
+<div class="stop-watch">
+  <div class="display">{{format(mm)}}:{{format(ss)}}:{{format(ms)}}</div>
+  <button
+    class="control"
+    (click)="clickHandler()">
+    {{isRunning || isWaiting ? 'Stop' : 'Start'}}
+  </button>
+  <button
+    class="control"
+    *ngIf="isRunning || isWaiting"
+    (click)="dbHandler()">
+    {{isWaiting ? 'Continue' : 'Wait'}}
+  </button>
+  <button
+    class="control"
+    *ngIf="isRunning || isWaiting"
+    (click)="clear()">
+    reset
+  </button>
+  <ul>
+    <li *ngFor="let result of results.sort()" class="display">
+      {{result}}
+    </li>
+  </ul>
+</div>
