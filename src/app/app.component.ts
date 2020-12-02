@@ -1,22 +1,11 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { trigger, style, animate, transition } from '@angular/animations';
-import { fromEvent, Observable, race, Subject, timer } from 'rxjs';
-import { buffer, debounce, debounceTime, throttle, throttleTime, filter, map, mapTo, scan } from 'rxjs/operators';
+import { Component, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { race, Subject, timer } from 'rxjs';
+import {filter, mapTo, scan } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('isRunning',
-      [
-        transition(':enter',
-          animate('.3s',
-            style({ width: '50%', display: 'block' })
-          )
-        )
-      ])
-  ]
 })
 export class AppComponent implements OnDestroy {
   public mm = 0;
